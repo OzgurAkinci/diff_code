@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    appendArea();
+
     $(".spinner").hide();
     $(".results").hide();
     $('.errorDiv').hide();
@@ -12,12 +14,19 @@ $(document).ready(function() {
         let yVals = document.getElementById("yVals");
         let toTextValue = document.getElementById("toTextValue");
         let toPdfValue = document.getElementById("toPdfValue");
+
+        const yValueElements = document.getElementsByClassName("dynamicInput");
+        const yValues = [];
+        for(let i=0; i<yValueElements.length; i++) {
+            yValues.push(yValueElements.item(i).value)
+        }
+
         let formDataV = {
             'd': v.value,
             'm': mTxt.value,
             'h': hVal.value,
-            //'y': yVal.value,
             'yvals': yVals.value,
+            'yvalues': yValues,
             'toText': toTextValue.checked,
             'toPdf': toPdfValue.checked
         };
@@ -80,3 +89,37 @@ function downloadPdfFile(filePath) {
     });
 }
 
+function appendArea() {
+    let nValue = document.getElementById("v");
+    removeElementsByClass("dynamicInputDiv");
+    if(nValue && nValue.value) {
+        for(let i=0; i<nValue.value; i++) {
+            const div = document.createElement("div");
+            div.className = "dynamicInputDiv form-input";
+
+            let inputId = "inputId-" + i;
+            const input = document.createElement("input");
+            input.type = "number";
+            input.id = inputId;
+            input.className = "dynamicInput form-control form-control-lg form-control-borderless";
+
+            const label = document.createElement("label");
+            label.for = inputId;
+            label.textContent = "y"+i;
+            label.className = "form-check-label";
+
+            div.appendChild(label);
+            div.appendChild(input);
+
+            const parent = document.getElementById("formArea");
+            parent.appendChild(div);
+        }
+    }
+}
+
+function removeElementsByClass(className){
+    const elements = document.getElementsByClassName(className);
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
