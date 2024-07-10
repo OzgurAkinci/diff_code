@@ -16,7 +16,7 @@ public class ApiService {
     public static String latexFile = "PInteg";
 
     public ResponseDTO run(RequestDTO requestDTO) {
-        int d = 2;
+        int d = requestDTO.getD();
         int[] m = {-1, 1, 2};
 
         Table table = new Table();
@@ -26,8 +26,6 @@ public class ApiService {
         table.put("h", new Ratio(h));
         table.put("y0", new Ratio(Math.sin(y0)));
         for (int i=0; i<m.length; i++) {
-            //table.put("y"+i, new Ratio(y0+i*h));
-            //table.put("y"+i, new Ratio(Math.sin(y0+i*h)));
             if (m[i]>0)
                 table.put("y"+m[i], new Ratio(Math.sin(y0+m[i]*h)));
             else

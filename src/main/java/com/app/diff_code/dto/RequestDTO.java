@@ -10,7 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RequestDTO {
-    private Integer n;
+    private Integer d;
     private boolean toText;
     private boolean toPdf;
 }

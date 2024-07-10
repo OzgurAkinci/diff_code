@@ -9,7 +9,7 @@ $(document).ready(function() {
         let vd2 = document.getElementById("toTextValue");
         let vd3 = document.getElementById("toPdfValue");
         let formDataV = {
-            'n': vd1.value,
+            'd': vd1.value,
             'toText': vd2.checked,
             'toPdf': vd3.checked
         };
