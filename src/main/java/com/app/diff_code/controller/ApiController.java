@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.math.BigDecimal;
+
 @Controller
 @RequiredArgsConstructor
 public class ApiController {
@@ -14,10 +16,9 @@ public class ApiController {
 
     @RequestMapping(value = {"/","/index"})
     public ModelAndView api(ModelAndView mv) {
-        RequestDTO req = new RequestDTO(3, true, false);
-        var response = apiService.run(req);
-        mv.addObject("textFormat", response.getTextFormat());
-        mv.addObject("latexFormat", response.getLatexFormat());
+        //RequestDTO req = new RequestDTO(3, "1,2,3", new BigDecimal(0),new BigDecimal(0),  true, false);
+        //var response = apiService.run(req);
+        ////mv.addObject("latexFormat", response.getLatexFormat());
         mv.setViewName("index");
         return mv;
     }

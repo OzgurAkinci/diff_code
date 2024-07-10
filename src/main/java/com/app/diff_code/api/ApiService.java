@@ -17,12 +17,22 @@ public class ApiService {
 
     public ResponseDTO run(RequestDTO requestDTO) {
         int d = requestDTO.getD();
-        int[] m = {-1, 1, 2};
+
+        String mTxt = requestDTO.getM();
+        String[] strArr = mTxt.split(",");
+
+
+        int[] m = new int[strArr.length];
+        for(int i=0; i<strArr.length; i++) {
+            m[i] = Integer.parseInt(strArr[i]);
+        }
 
         Table table = new Table();
 
-        double h = Math.PI/20;
-        double y0 = Math.PI/5;
+        //double h = Math.PI/20;
+        //double y0 = Math.PI/5;
+        double h = requestDTO.getH().doubleValue();
+        double y0 = requestDTO.getY().doubleValue();
         table.put("h", new Ratio(h));
         table.put("y0", new Ratio(Math.sin(y0)));
         for (int i=0; i<m.length; i++) {

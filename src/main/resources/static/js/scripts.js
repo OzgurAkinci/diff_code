@@ -5,13 +5,19 @@ $(document).ready(function() {
     $("#btn").click(function(event) {
         event.preventDefault();
         $(".spinner").show();
-        let vd1 = document.getElementById("v");
-        let vd2 = document.getElementById("toTextValue");
-        let vd3 = document.getElementById("toPdfValue");
+        let v = document.getElementById("v");
+        let mTxt = document.getElementById("mTxt");
+        let hVal = document.getElementById("hVal");
+        let yVal = document.getElementById("yVal");
+        let toTextValue = document.getElementById("toTextValue");
+        let toPdfValue = document.getElementById("toPdfValue");
         let formDataV = {
-            'd': vd1.value,
-            'toText': vd2.checked,
-            'toPdf': vd3.checked
+            'd': v.value,
+            'm': mTxt.value,
+            'h': hVal.value,
+            'y': yVal.value,
+            'toText': toTextValue.checked,
+            'toPdf': toPdfValue.checked
         };
         $.ajax({
             type: "POST",
