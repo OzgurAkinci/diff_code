@@ -20,8 +20,6 @@ public class ApiService {
 
         String mTxt = requestDTO.getM();
         String[] strArr = mTxt.split(",");
-
-
         int[] m = new int[strArr.length];
         for(int i=0; i<strArr.length; i++) {
             m[i] = Integer.parseInt(strArr[i]);
@@ -32,15 +30,32 @@ public class ApiService {
         //double h = Math.PI/20;
         //double y0 = Math.PI/5;
         double h = requestDTO.getH().doubleValue();
-        double y0 = requestDTO.getY().doubleValue();
+        //double y0 = requestDTO.getY().doubleValue();
         table.put("h", new Ratio(h));
-        table.put("y0", new Ratio(Math.sin(y0)));
+
+
+        String yVals = requestDTO.getYvals();
+        String[] strYValsArr = yVals.split(",");
+        double[] yDoubleVals = new double[strYValsArr.length];
+
+        for(int i=0; i<strYValsArr.length; i++) {
+            yDoubleVals[i] = Double.parseDouble(strYValsArr[i]);;
+        }
+        table.put("y0", new Ratio(yDoubleVals[0]));
+        for(int i=1; i<strYValsArr.length; i++) {
+            if (yDoubleVals[i]>0)
+                table.put("y"+m[i-1], new Ratio(yDoubleVals[i]));
+            else
+                table.put("y_"+(-1*m[i-1]), new Ratio(yDoubleVals[i]));
+        }
+
+        /*
         for (int i=0; i<m.length; i++) {
             if (m[i]>0)
                 table.put("y"+m[i], new Ratio(Math.sin(y0+m[i]*h)));
             else
                 table.put("y_"+(-1*m[i]), new Ratio(Math.sin(y0+m[i]*h)));
-        }
+        }*/
 
         StringBuilder stringBuilder = new StringBuilder();
         StringBuilder latexStringBuilder = new StringBuilder();

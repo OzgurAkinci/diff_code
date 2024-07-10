@@ -15,7 +15,8 @@ public class RequestDTO {
     private Integer d;
     private String m;
     private BigDecimal h;
-    private BigDecimal y;
+    //private BigDecimal y;
+    private String yvals;
     private boolean toText;
     private boolean toPdf;
 }

@@ -8,14 +8,16 @@ $(document).ready(function() {
         let v = document.getElementById("v");
         let mTxt = document.getElementById("mTxt");
         let hVal = document.getElementById("hVal");
-        let yVal = document.getElementById("yVal");
+        //let yVal = document.getElementById("yVal");
+        let yVals = document.getElementById("yVals");
         let toTextValue = document.getElementById("toTextValue");
         let toPdfValue = document.getElementById("toPdfValue");
         let formDataV = {
             'd': v.value,
             'm': mTxt.value,
             'h': hVal.value,
-            'y': yVal.value,
+            //'y': yVal.value,
+            'yvals': yVals.value,
             'toText': toTextValue.checked,
             'toPdf': toPdfValue.checked
         };
