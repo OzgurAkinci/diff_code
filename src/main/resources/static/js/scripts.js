@@ -8,10 +8,9 @@ $(document).ready(function() {
         event.preventDefault();
         $(".spinner").show();
         let v = document.getElementById("v");
+        let d = document.getElementById("d");
         let mTxt = document.getElementById("mTxt");
         let hVal = document.getElementById("hVal");
-        //let yVal = document.getElementById("yVal");
-        let yVals = document.getElementById("yVals");
         let toTextValue = document.getElementById("toTextValue");
         let toPdfValue = document.getElementById("toPdfValue");
 
@@ -22,10 +21,10 @@ $(document).ready(function() {
         }
 
         let formDataV = {
-            'd': v.value,
+            'd': d.value,
+            'v': v.value,
             'm': mTxt.value,
             'h': hVal.value,
-            'yvals': yVals.value,
             'yvalues': yValues,
             'toText': toTextValue.checked,
             'toPdf': toPdfValue.checked

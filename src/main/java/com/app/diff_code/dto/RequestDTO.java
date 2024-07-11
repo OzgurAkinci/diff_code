@@ -13,10 +13,9 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class RequestDTO {
     private Integer d;
+    private Integer v;
     private String m;
     private BigDecimal h;
-    //private BigDecimal y;
-    private String yvals;
     private double[] yvalues;
     private boolean toText;
     private boolean toPdf;

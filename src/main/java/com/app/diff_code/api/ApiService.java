@@ -25,6 +25,7 @@ public class ApiService {
             m[i] = Integer.parseInt(strArr[i]);
         }
 
+
         Table table = new Table();
 
         //double h = Math.PI/20;
@@ -34,15 +35,10 @@ public class ApiService {
         table.put("h", new Ratio(h));
 
 
-        String yVals = requestDTO.getYvals();
-        String[] strYValsArr = yVals.split(",");
-        double[] yDoubleVals = new double[strYValsArr.length];
+        var yDoubleVals = requestDTO.getYvalues();
 
-        for(int i=0; i<strYValsArr.length; i++) {
-            yDoubleVals[i] = Double.parseDouble(strYValsArr[i]);;
-        }
         table.put("y0", new Ratio(yDoubleVals[0]));
-        for(int i=1; i<strYValsArr.length; i++) {
+        for(int i=1; i<requestDTO.getYvalues().length; i++) {
             if (yDoubleVals[i]>0)
                 table.put("y"+m[i-1], new Ratio(yDoubleVals[i]));
             else
