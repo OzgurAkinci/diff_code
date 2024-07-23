@@ -37,14 +37,14 @@ $\displaystyle Exp_{1}: t_{1}+t_{2}*2+t_{3}*3$\\
 $\displaystyle Exp_{2}: t_{1}+t_{2}*2^{2}+t_{3}*3^{2}$\\
 $\displaystyle Exp_{3}: t_{1}+t_{2}*2^{3}+t_{3}*3^{3}$\\
 \subsection{Denklem Sistemi}
-Bu katsayi ifadelerinden ilki ile 1. turevin ifadesi cikarilarak asagidaki denklemler elde edilir.\\
-$\displaystyle t_{1}+t_{2}*2^{2}+t_{3}*3^{2}=0$\\
+Bu katsayi ifadelerinden ilki ile 2. turevin ifadesi cikarilarak asagidaki denklemler elde edilir.\\
+$\displaystyle t_{1}+t_{2}*2+t_{3}*3=0$\\
 $\displaystyle t_{1}+t_{2}*2^{3}+t_{3}*3^{3}=0$\\
 Bu denklemlerden katsayi matrisi olusturulur.
 \begin{center}
 $$ \left[\begin{array}{rrr}
 t_{1} & t_{2} & t_{3}\\
-1 & 2^{2} & 3^{2}\\
+1 & 2 & 3\\
 1 & 2^{3} & 3^{3}\\
 \end{array}\right] $$
 \end{center}
@@ -52,7 +52,7 @@ Denklemler, $t_{1}$ bagimsiz degisken yapilarak (sag tarafa tasinarak) asagidaki
 \begin{center}
 $$ \left[\begin{array}{rr|r}
 t_{1} & t_{2} & t_{3}\\
-1 & 4 & -9\\
+1 & 2 & -3\\
 1 & 8 & -27\\
 \end{array}\right] $$
 \end{center}
@@ -60,46 +60,54 @@ t_{1} & t_{2} & t_{3}\\
 1. satir kullanilarak  asagisindaki (2,1) elemani 0 yapilir.\begin{center}
 $$ \left[\begin{array}{rr|r}
 t_{1} & t_{2} & t_{3}\\
-1 & 4 & -9\\
-0 & 4 & -18\\
+1 & 2 & -3\\
+0 & 6 & -24\\
 \end{array}\right] $$
 \end{center}
 2. satir kullanilarak  yukarisindaki (1,2) elemani 0 yapilir.\begin{center}
 $$ \left[\begin{array}{rr|r}
 t_{1} & t_{2} & t_{3}\\
-1 & 0 & 9\\
-0 & 4 & -18\\
+1 & 0 & 5\\
+0 & 6 & -24\\
 \end{array}\right] $$
 \end{center}
 Katsayi matrisi birim matrise donusturulur.
 \begin{center}
 $$ \left[\begin{array}{rr|r}
 t_{1} & t_{2} & t_{3}\\
-1 & 0 & 9\\
-0 & 1 & \frac{-9}{2}\\
+1 & 0 & 5\\
+0 & 1 & -4\\
 \end{array}\right] $$
 \end{center}
 Buradan katsayi cozumleri asagidaki gibi belirlenir.\\
-$\displaystyle t_{1}=9*t_{3}$\\
-$\displaystyle t_{2}=\frac{-9}{2}*t_{3}$\\
+$\displaystyle t_{1}=5*t_{3}$\\
+$\displaystyle t_{2}=-4*t_{3}$\\
 \subsection{Katsayilar icin Tamsayi Degerleri}
 $t_{3}$ degiskenine atanabilecek en kucuk tamsayi degeri EKOK hesabi ile belirlenir.\\
-$t_{3}=EKOK(2)=2$\\
+$t_{3}=EKOK()=1$\\
 \\
 Bu deger yardimiyla katsayi degiskenlerine atanacak degerler hesaplanir.\\
-$\displaystyle t_{1}=9*2=18$\\
-$\displaystyle t_{2}=-9/2*2=-9$\\
-$\displaystyle t_{3}=2$\\
+$\displaystyle t_{1}=5*1=5$\\
+$\displaystyle t_{2}=-4*1=-4$\\
+$\displaystyle t_{3}=1$\\
 \\
 $y_{0}$ noktasinin katsayisi ($t_{0}$) ile birlikte tum katsayilar asagidaki gibi belirlenir.\\
-$y_{0}: t_{0}=t_{1}+t_{2}+t_{3}=18+(-9)+2=11$\\
-$y_{1}: t_{1}=18$\\
-$y_{2}: t_{2}=-9$\\
-$y_{3}: t_{3}=2$\\
-$y^{(1)}: 6*h$\\
+$y_{0}: t_{0}=t_{1}+t_{2}+t_{3}=5+(-4)+1=2$\\
+$y_{1}: t_{1}=5$\\
+$y_{2}: t_{2}=-4$\\
+$y_{3}: t_{3}=1$\\
+$y^{(2)}: -1*h^2$\\
 \\
-$y^{(1)}$ ifadesi hesaplanir.\\
-$y^{(1)}=\frac{-11*y_{0}+18*y_{1}-9*y_{2}+2*y_{3}}{6*h}+O(h^{3})$\\
-$y^{(1)}=\frac{-11*0.70710678118+18*0.70781353429-9*0.72110655737+2*0.72799862859}{6*0.01}+O(h^{3})$\\
-$y^{(1)}=-1.1915455818+O(h^{3})$\\
+$y^{(2)}$ teriminin katsayisi negatif oldugundan tum katsayilar (-1) ile carpilir.\\
+$y_{0}: t_{0}=2$\\
+$y_{1}: t_{1}=-5$\\
+$y_{2}: t_{2}=4$\\
+$y_{3}: t_{3}=-1$\\
+$y^{(2)}: 1*h^{2}$\\
+$t_{sum} = 0$ (katsayilar dogru ise toplami 0 olmalidir)\\
+\\
+$y^{(2)}$ ifadesi hesaplanir.\\
+$y^{(2)}=\frac{2*y_{0}-5*y_{1}+4*y_{2}-y_{3}}{1*h^{2}}+O(h^{2})$\\
+$y^{(2)}=\frac{2*0.7071-5*0.7078+4*0.7085-0.7092}{1*0.001^{2}}+O(h^{2})$\\
+$y^{(2)}=0E-10+O(h^{2})$\\
 \end{document}

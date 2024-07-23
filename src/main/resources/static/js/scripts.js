@@ -4,8 +4,8 @@ $(document).ready(function() {
     elements = [
         {value: 0.70710678118},
         {value: 0.70781353429},
-        {value: 0.72110655737},
-        {value: 0.72799862859},
+        {value: 0.70851957959},
+        {value: 0.70922491637},
     ];
 
     loadData();
