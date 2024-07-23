@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="row" id="formArea">
                                             <div class="form-input mt-3">
-                                                <label class="form-check-label" for="v">Türev Değeri</label>
+                                                <label class="form-check-label" for="d">Türev Değeri</label>
                                                 <input class="form-control form-control-lg form-control-borderless" id="d"
                                                        value="1" type="number" placeholder="">
                                             </div>
@@ -66,13 +66,19 @@
                                             <div class="form-input">
                                                 <label class="form-check-label" for="hVal">Adım Boyutu (h_size)</label>
                                                 <input class="form-control form-control-lg form-control-borderless" id="hVal"
-                                                       value="0.001" type="text" placeholder="">
+                                                       value="0.01" type="text" placeholder="">
                                             </div>
 
-                                            <div class="form-input mt-3">
-                                                <label class="form-check-label" for="v">Fonksiyon Değer Sayısı</label>
-                                                <input onchange="appendArea()" class="form-control form-control-lg form-control-borderless" id="v"
-                                                       value="3" type="number" placeholder="">
+                                            <div class="input-group mt-3">
+                                                <input id="fValues" type="number" class="form-control" aria-label="Add an item">
+                                                <div class="input-group-append">
+                                                    <button onclick="appendData()" class="btn btn-outline-primary" id="enter" type="button">Add</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <ul id="yDataList" class="list-group">
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
