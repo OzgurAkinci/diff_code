@@ -85,7 +85,7 @@ function downloadPdfFile(filePath) {
             let downloadUrl = URL.createObjectURL(blob);
             let a = document.createElement('a');
             a.href = downloadUrl;
-            a.download = 'latex.pdf';
+            a.download = 'f_diff_latex.pdf';
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);

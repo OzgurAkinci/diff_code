@@ -13,7 +13,7 @@ import java.nio.file.Files;
 @Service
 public class ApiService {
     public static PrintWriter pw = null;
-    public static String latexFile = "PInteg";
+    public static String latexFile = "FDiff";
 
     public ResponseDTO run(RequestDTO requestDTO) {
         int d = requestDTO.getD();
